@@ -7,7 +7,8 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
@@ -31,16 +32,26 @@ module.exports = {
 					}
 				]
 			},
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 10000,
-            },
-          },
-        ],
+			{
+				test: /\.(woff|woff2|eot|ttf|otf)$/,
+				use: [{
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]',
+						outputPath: 'fonts/'
+					}
+				}],
+			},
+			{
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [{
+					loader: 'file-loader',
+					options: {
+						esModule: false,
+						name: '[name].[ext]',
+						outputPath: 'imgs/'
+					}
+				}],
       },
 			{
 				test: /\.html$/,
