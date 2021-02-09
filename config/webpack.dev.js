@@ -6,7 +6,7 @@ module.exports = merge(common, {
 	mode: 'development',
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: path.resolve(__dirname, 'src/assets'),
+		contentBase: path.resolve(__dirname, '../src/assets'),
 		port: 3000,
 		publicPath: '/'
 	}

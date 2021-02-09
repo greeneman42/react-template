@@ -6,7 +6,7 @@ const path = require('path')
 module.exports = {
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, '../dist'),
 		filename: 'bundle.js',
 		publicPath: '/'
 	},
@@ -61,8 +61,8 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
-			template: './src/index.html',
-			filename: './index.html'
+			template: path.resolve(__dirname, '../src/index.html'),
+			filename: 'index.html'
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'index.css'
